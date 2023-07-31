@@ -1,9 +1,10 @@
 package com.company.oop.dealership.models;
 
+import com.company.oop.dealership.models.contracts.Vehicle;
 import com.company.oop.dealership.models.enums.VehicleType;
 import com.company.oop.dealership.utils.ValidationHelpers;
 
-abstract class VehicleBase {
+abstract class VehicleBase implements Vehicle {
     public static final int MAKE_MIN_LENGTH = 2;
     public static final int MAKE_MAX_LENGTH = 15;
     public static final String
@@ -26,12 +27,11 @@ abstract class VehicleBase {
     private double price;
     private VehicleType vehicleType;
 
-    public VehicleBase(String make, String model, int wheelsCount, double price, VehicleType vehicleType) {
+    public VehicleBase(String make, String model, int wheelsCount, double price) {
         setMake(make);
         setModel(model);
-        setWheelsCount(wheelsCount);
+        this.wheelsCount=wheelsCount;
         setPrice(price);
-        this.vehicleType=vehicleType;
     }
 
     public String getMake() {
@@ -65,7 +65,7 @@ abstract class VehicleBase {
                 MODEL_MAX_LENGTH,
                 MODEL_LENGTH_ERROR_MESSAGE);
     }
-
+    @Override
     public double getPrice() {
         return price;
     }
@@ -81,15 +81,13 @@ abstract class VehicleBase {
                 MAX_PRICE,
                 PRICE_IN_RANGE_ERROR);
     }
-
-    public int getWheelsCount() {
+    @Override
+    public int getWheels() {
         return wheelsCount;
     }
 
-    private void setWheelsCount(int wheelsCount) {
-        validateWheelsCount(wheelsCount);
-        this.wheelsCount = wheelsCount;
+    @Override
+    public VehicleType getType() {
+        return vehicleType;
     }
-
-     protected void validateWheelsCount(int WheelsCount){};
 }
