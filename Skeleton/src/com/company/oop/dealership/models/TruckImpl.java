@@ -18,8 +18,10 @@ public class TruckImpl extends VehicleBase implements Truck {
     public static final int TRUCK_WHEELS_COUNT = 8;
     private int weightCapacity;
 
-    public TruckImpl(String make, String model, int wheelsCount, double price, int weightCapacity) {
+
+    public TruckImpl(String make, String model, double price, int weightCapacity) {
         super(make, model, TRUCK_WHEELS_COUNT, price);
+        setWeightCapacity(weightCapacity);
     }
 
     @Override
@@ -37,17 +39,22 @@ public class TruckImpl extends VehicleBase implements Truck {
 
     @Override
     public void addComment(Comment comment) {
-
+        super.addComment(comment);
     }
 
     @Override
     public void removeComment(Comment comment) {
-
+        super.removeComment(comment);
     }
 
     @Override
     public VehicleType getType() {
         return VehicleType.TRUCK;
     }
-    //TODO
+
+    @Override
+    public String toString() {
+        return String.format("%s\n" +
+                "Weight Capacity: %dt",super.toString(),getWeightCapacity());
+    }
 }

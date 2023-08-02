@@ -18,8 +18,7 @@ public class CommandFactoryImpl implements CommandFactory {
             case LOGOUT:
                 return new LogoutCommand(vehicleDealershipRepository);
             case SHOWUSERS:
-                //TODO
-                throw new UnsupportedOperationException("Not implemented yet.");
+                return  new ShowUsersCommand(vehicleDealershipRepository);
             case ADDCOMMENT:
                 return new AddCommentCommand(vehicleDealershipRepository);
             case ADDVEHICLE:

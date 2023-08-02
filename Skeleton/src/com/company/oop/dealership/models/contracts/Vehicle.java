@@ -1,8 +1,7 @@
 package com.company.oop.dealership.models.contracts;
 
 import com.company.oop.dealership.models.enums.VehicleType;
-
-public interface Vehicle extends Priceable{
+ public interface Vehicle extends Priceable,Commentable{
 
     int getWheels();
 

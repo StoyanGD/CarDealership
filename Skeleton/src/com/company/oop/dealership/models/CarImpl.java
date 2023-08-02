@@ -18,7 +18,8 @@ public class CarImpl extends VehicleBase implements Car {
     public static final int CAR_WHEELS_COUNT = 4;
     private int seats;
 
-    public CarImpl(String make, String model, int wheelsCount, double price, int seats) {
+
+    public CarImpl(String make, String model, double price, int seats) {
         super(make, model, CAR_WHEELS_COUNT, price);
         setSeats(seats);
     }
@@ -44,12 +45,18 @@ public class CarImpl extends VehicleBase implements Car {
 
     @Override
     public void addComment(Comment comment) {
-        //TODO
+        super.addComment(comment);
     }
 
     @Override
     public void removeComment(Comment comment) {
-        //TODO
+        super.removeComment(comment);
     }
-    //TODO STRING
+
+    @Override
+    public String toString() {
+        return String.format(
+                "%s\n" +
+                "Seats: %d",super.toString(),getSeats());
+    }
 }

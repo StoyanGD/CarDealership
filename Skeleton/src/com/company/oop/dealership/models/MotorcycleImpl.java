@@ -18,7 +18,7 @@ public class MotorcycleImpl extends VehicleBase implements Motorcycle {
     public static final int MOTORCYCLE_WHEELS_COUNT = 2;
     private String category;
 
-    public MotorcycleImpl(String make, String model, int wheelsCount, double price, String category) {
+    public MotorcycleImpl(String make, String model, double price, String category) {
         super(make, model, MOTORCYCLE_WHEELS_COUNT, price);
         setCategory(category);
     }
@@ -44,12 +44,17 @@ public class MotorcycleImpl extends VehicleBase implements Motorcycle {
 
     @Override
     public void addComment(Comment comment) {
-//TODO
+        super.addComment(comment);
     }
 
     @Override
     public void removeComment(Comment comment) {
-//TODO
+        super.removeComment(comment);
     }
-    //TODO String
+
+    @Override
+    public String toString() {
+        return String.format("%s\n" +
+                "Category: %s",super.toString(),getCategory());
+    }
 }
